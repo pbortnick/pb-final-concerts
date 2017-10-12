@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  artist: MyString
+  genre: MyString
+  date: 2017-10-12
+  venue_id: 1
+
+two:
+  artist: MyString
+  genre: MyString
+  date: 2017-10-12
+  venue_id: 1
