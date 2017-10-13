@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../App.css';
 import Concerts from './Concerts'
-import Venues from './Venues'
+import Venues from '../components/Venues'
 import fetch from 'isomorphic-fetch';
 
 const API_URL = process.env.REACT_APP_API_URL;

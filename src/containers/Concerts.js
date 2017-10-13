@@ -1,18 +1,20 @@
-import React from 'react';
+import React, { Component } from 'react';
 import '../Concerts.css';
+import ConcertCard from '../components/ConcertCard'
+import ConcertForm from './ConcertForm'
 
-const Concerts = (props) => (
-  <div className="ConcertsContainer">
-    <h1>Concerts</h1>
-    {props.concerts.map(concert =>
-      <div key={concert.id} className="ConcertCard">
-        <h3>{concert.artist}</h3>
-        <p>Genre: {concert.genre}</p>
-        <p>Date: {concert.date}</p>
-        <p>Venue: {concert.venue.name}</p>
+class Concerts extends Component {
+
+  render() {
+    return (
+      <div className="ConcertsContainer">
+        <h1>Concerts</h1>
+        {this.props.concerts.map(concert => <ConcertCard concert={concert} />
+         )}
+         <ConcertForm />
       </div>
-     )}
-  </div>
-);
+    )
+  }
+}
 
 export default Concerts;
