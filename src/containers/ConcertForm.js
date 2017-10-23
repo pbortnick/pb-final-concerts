@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { updateConcertFormData } from '../actions/concertForm'
+import { updateConcertFormData, resetConcertForm } from '../actions/concertForm'
 import { createConcert } from '../actions/concerts'
 
 class ConcertForm extends Component {
 
-  handleOnChange = (event) => {
+  handleOnChange = event => {
     const { name, value } = event.target;
     const currentConcertFormData = Object.assign({}, this.props.concertFormData, {
       [name]: value
@@ -14,8 +14,8 @@ class ConcertForm extends Component {
     this.props.updateConcertFormData(currentConcertFormData)
   }
 
-  handleOnSubmit = (event) => {
-    event.preventDefault;
+  handleOnSubmit = event => {
+    event.preventDefault()
     this.props.createConcert(this.props.concertFormData)
   }
 
@@ -24,42 +24,42 @@ class ConcertForm extends Component {
 
     return (
       <div>
-        Add a Concert to the Inventory
+        <h3>Add an Upcoming Concert</h3>
         <form onSubmit={this.handleOnSubmit}>
           <div>
-            <label htmlFor="name">Artist:</label>
+            <label htmlFor="artist">Artist: </label>
             <input
               type='text'
-              onChange = {this.handleOnChange}
               name='artist'
               value={artist}
+              onChange = {this.handleOnChange}
             />
           </div>
           <div>
-            <label htmlFor="genre">Genre:</label>
+            <label htmlFor="genre">Genre: </label>
             <input
               type='text'
-              onChange = {this.handleOnChange}
               name='genre'
               value={genre}
+              onChange = {this.handleOnChange}
             />
           </div>
           <div>
-            <label htmlFor="date">Date:</label>
+            <label htmlFor="date">Date: </label>
             <input
               type='date'
-              onChange = {this.handleOnChange}
               name='date'
               value={date}
+              onChange = {this.handleOnChange}
             />
           </div>
           <div>
-            <label htmlFor="length">Venue:</label>
+            <label htmlFor="venue_id">Venue: </label>
             <input
-              type='string'
-              onChange = {this.handleOnChange}
+              type='number'
               name='venue_id'
               value={venue_id}
+              onChange = {this.handleOnChange}
             />
           </div>
           <button type='submit'>Add Concert</button>
@@ -71,7 +71,8 @@ class ConcertForm extends Component {
 
 const mapStateToProps = state => {
   return {
-    concertFormData: state.concertFormData
+    concertFormData: state.concertFormData,
+    concerts: state.concerts
   }
 }
 

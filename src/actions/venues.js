@@ -7,13 +7,6 @@ const setVenues = venues => {
   }
 }
 
-const addVenue = venue => {
-  return {
-    type: 'CREATE_VENUE_SUCCESS',
-    venue: venue
-  }
-}
-
 export const getVenues = () => {
   return dispatch => {
     return fetch(`${API_URL}/venues`)

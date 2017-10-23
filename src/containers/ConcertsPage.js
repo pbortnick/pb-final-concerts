@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ConcertCard from '../components/ConcertCard';
-import ConcertForm from './ConcertForm';
 import { getConcerts } from '../actions/concerts';
-import './Concerts.css';
 
-class Concerts extends Component {
+class ConcertsPage extends Component {
 
   componentDidMount() {
     this.props.getConcerts()
@@ -16,7 +14,6 @@ class Concerts extends Component {
       <div className="ConcertContainer">
         <h1>Concerts</h1>
         {this.props.concerts.map(concert => <ConcertCard key={concert.id} concert={concert} />)}
-        <ConcertForm />
       </div>
     )
   }
@@ -28,4 +25,4 @@ const mapStateToProps = (state) => {
   })
 }
 
-export default connect(mapStateToProps, { getConcerts })(Concerts);
+export default connect(mapStateToProps, { getConcerts })(ConcertsPage);

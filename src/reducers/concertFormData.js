@@ -7,9 +7,9 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch(action.type) {
-    case "UPDATED_DATA":
+    case "UPDATED_CONCERT_DATA":
       return action.concertFormData;
-    case 'CONCERT':
+    case "RESET_CONCERT_FORM":
       return initialState;
     default:
       return state;
