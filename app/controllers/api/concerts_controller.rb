@@ -1,6 +1,5 @@
 class Api::ConcertsController < ApplicationController
-
-  before_action :set_concert, only: [:show, :update, :destroy]
+  before_action :set_concert, only: [:show, :edit, :destroy, :update]
 
   def index
     render json: Concert.all
@@ -11,9 +10,10 @@ class Api::ConcertsController < ApplicationController
     if concert.save
       render json: concert
     else
-      render json: { message: concert.errors, status: 400 }
+      render json: { message: concert.errors }, status: 400
     end
   end
+
 
   def show
     render json: @concert
@@ -23,15 +23,15 @@ class Api::ConcertsController < ApplicationController
     if @concert.update(concert_params)
       render json: @concert
     else
-      render json: { message: concert.errors, status: 400}
+      render json: { message: @concert.errors }, status: 400
     end
   end
 
   def destroy
     if @concert.destroy
-      render json: {message: "Concert destroyed"}, status: 204
+      render status: 204
     else
-      render json: {message: "Unable to destroy concert"}, status: 400
+      render json: { message: "Unable to remove this concert" }, status: 400
     end
   end
 
@@ -42,7 +42,6 @@ class Api::ConcertsController < ApplicationController
   end
 
   def concert_params
-    params.require(:concert).params(:artist, :genre, :date, :venue_id)
+    params.require(:concert).permit(:artist, :genre, :date, :venue_id)
   end
-
 end

@@ -5,7 +5,7 @@ class CreateVenues < ActiveRecord::Migration[5.1]
       t.string :city
       t.string :state
       t.string :description
-
+      
       t.timestamps
     end
   end

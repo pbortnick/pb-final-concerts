@@ -1,5 +1,4 @@
 class Api::VenuesController < ApplicationController
-
   before_action :set_venue, only: [:show]
 
   def index
@@ -17,7 +16,6 @@ class Api::VenuesController < ApplicationController
   end
 
   def venue_params
-    params.require(:venue).params(:name, :city, :state, :description)
+    params.require(:venue).permit(:name, :city, :state, :description, :image)
   end
-
 end
