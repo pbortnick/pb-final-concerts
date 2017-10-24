@@ -1,0 +1,12 @@
+.ConcertContainer {
+  text-align: center;
+}
+
+.ConcertCard {
+  border-bottom: 2px solid black;
+  padding-bottom: 10px;
+}
+
+h1 {
+  text-decoration: underline;
+}

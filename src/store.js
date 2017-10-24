@@ -9,14 +9,16 @@ import concerts from './reducers/concerts';
 import concertFormData from './reducers/concertFormData';
 import venues from './reducers/venues';
 import venue from './reducers/venue';
-
+import venueFormData from './reducers/venueFormData';
 
 const reducers = combineReducers({
   concerts,
   concertFormData,
   venues,
-  venue
+  venue,
+  venueFormData
 });
+
 const middleware = [thunk];
 
 export default createStore(

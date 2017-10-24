@@ -1,5 +1,6 @@
 .Navigation {
   border-bottom: 2px solid black;
+  padding-top: 2px;
   padding-bottom: 2px;
   margin-bottom: 4px;
   background-color: #ddd;
@@ -12,4 +13,4 @@
   padding-right: 10px;
   padding-left: 10px;
   border-right: 1px solid black;
-  }
+}

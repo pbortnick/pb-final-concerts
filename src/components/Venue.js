@@ -1,4 +1,5 @@
 import React from 'react';
+import '../venue.css'
 
 const Venue = ({ venue }) => (
   <div className="VenueShow">

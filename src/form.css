@@ -1,0 +1,10 @@
+.form label{
+    text-align: left;
+
+}
+
+.form input {
+  display: block;
+  width:200px;
+  height:20px;
+}

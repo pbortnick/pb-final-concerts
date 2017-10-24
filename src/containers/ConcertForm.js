@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { updateConcertFormData, resetConcertForm } from '../actions/concertForm'
+import VenuesChoicesPage from './VenuesChoicesPage'
+import { updateConcertFormData } from '../actions/concertForm'
 import { createConcert } from '../actions/concerts'
+import '../form.css'
 
 class ConcertForm extends Component {
 
@@ -23,7 +25,7 @@ class ConcertForm extends Component {
     const {artist, genre, date, venue_id} = this.props.concertFormData;
 
     return (
-      <div>
+      <div className="form">
         <h3>Add an Upcoming Concert</h3>
         <form onSubmit={this.handleOnSubmit}>
           <div>
@@ -35,6 +37,7 @@ class ConcertForm extends Component {
               onChange = {this.handleOnChange}
             />
           </div>
+          <br></br>
           <div>
             <label htmlFor="genre">Genre: </label>
             <input
@@ -44,6 +47,7 @@ class ConcertForm extends Component {
               onChange = {this.handleOnChange}
             />
           </div>
+          <br></br>
           <div>
             <label htmlFor="date">Date: </label>
             <input
@@ -53,6 +57,7 @@ class ConcertForm extends Component {
               onChange = {this.handleOnChange}
             />
           </div>
+          <br></br>
           <div>
             <label htmlFor="venue_id">Venue: </label>
             <input
@@ -62,8 +67,11 @@ class ConcertForm extends Component {
               onChange = {this.handleOnChange}
             />
           </div>
+          <br></br>
+
           <button type='submit'>Add Concert</button>
         </form>
+        <VenuesChoicesPage />
       </div>
     )
   }

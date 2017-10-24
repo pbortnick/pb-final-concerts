@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ConcertCard from '../components/ConcertCard';
 import { getConcerts } from '../actions/concerts';
+import '../concerts.css'
 
 class ConcertsPage extends Component {
 

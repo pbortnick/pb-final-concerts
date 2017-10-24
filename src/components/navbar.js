@@ -10,22 +10,27 @@ const NavBar = () => {
       >
         Home
       </NavLink>
-      
+
       <NavLink className="NavLink"
         to="/concerts"
       >
         Concerts
       </NavLink>
-      
+
       <NavLink className="NavLink"
       to="/concerts/new">
-      Add Concert
+        Add Concert
       </NavLink>
-      
+
       <NavLink className="NavLink"
         to="/venues"
       >
         Venues
+      </NavLink>
+
+      <NavLink className="NavLink"
+      to="/venues/new">
+        Add Venue
       </NavLink>
     </div>
   );
