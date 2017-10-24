@@ -3,7 +3,6 @@ import {
   BrowserRouter as Router,
   Route
 } from 'react-router-dom';
-// import { Switch } from 'react-router-dom';
 
 import NavBar from './navbar';
 import ConcertsPage from '../containers/ConcertsPage';
@@ -24,8 +23,7 @@ class App extends Component {
           <Route exact path="/" component={Home} />
           <Route exact path='/concerts' component={ConcertsPage} />
           <Route exact path='/concerts/new' component={ConcertForm} />
-          <Route exact path='/venues/new' component={VenueForm} />
-          <Route exact path='/venues' component={VenuesPage} />
+          <Route path='/venues' component={VenuesPage} />
         </div>
       </Router>
     );

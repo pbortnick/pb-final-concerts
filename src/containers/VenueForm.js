@@ -28,7 +28,7 @@ class VenueForm extends Component {
         <h3>Add a Local Venue</h3>
         <form onSubmit={this.handleOnSubmit}>
           <div>
-            <label htmlFor="name">Artist: </label>
+            <label htmlFor="name">Name: </label>
             <input
               type='text'
               name='name'
@@ -38,7 +38,7 @@ class VenueForm extends Component {
           </div>
           <br></br>
           <div>
-            <label htmlFor="city">Genre: </label>
+            <label htmlFor="city">City: </label>
             <input
               type='text'
               name='city'
@@ -48,7 +48,7 @@ class VenueForm extends Component {
           </div>
           <br></br>
           <div>
-            <label htmlFor="state">Date: </label>
+            <label htmlFor="state">State: </label>
             <input
               type='text'
               name='state'

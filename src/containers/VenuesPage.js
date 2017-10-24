@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
+
 import VenueCard from '../components/VenueCard';
 import { getVenues } from '../actions/venues';
-import VenuesShow from './VenuesShow'
-import '../venues.css'
+import VenuesShow from './VenuesShow';
+import VenueForm from './VenueForm'
+import '../venues.css';
+
 
 class VenuesPage extends Component {
 
@@ -13,14 +16,19 @@ class VenuesPage extends Component {
   }
 
   render() {
-    const { match } = this.props;
+    const { venues, match } = this.props;
     return (
       <div className="VenueContainer">
         <h1>Venues</h1>
         <p> Click on name to see more info</p>
         {this.props.venues.map(venue => <VenueCard key={venue.id} venue={venue} />)}
 
-        <Route exact path={`${match.url}/:venueId`} component={VenuesShow}/>
+        <Switch>
+          <Route path={`${match.url}/new`} component={VenueForm} />
+          <Route path={`${match.url}/:venueId`} component={VenuesShow}/>
+        </Switch>
+
+
       </div>
     )
   }

@@ -1,5 +1,6 @@
 .VenueContainer {
   text-align: center;
+  display: inline;
 }
 
 a {
