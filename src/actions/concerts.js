@@ -16,6 +16,13 @@ const API_URL = process.env.REACT_APP_API_URL;
     }
   }
 
+  export const updateVote = concert => {
+    return {
+      type: 'ADD_VOTE',
+      concert: concert
+    }
+  }
+
   export const getConcerts = () => {
     return dispatch => {
       return fetch(`${API_URL}/concerts`)
@@ -38,6 +45,24 @@ export const createConcert = concert => {
       .then(concert => {
         dispatch(addConcert(concert))
         dispatch(resetConcertForm())
+      })
+      .catch(error => console.log(error))
+  }
+}
+
+export const addVote = concert => {
+  concert.vote += 1
+  return dispatch => {
+    return fetch(`${API_URL}/concerts/${concert.id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ concert: concert })
+    })
+      .then(response => response.json())
+      .then(concert => {
+        dispatch(updateVote(concert))
       })
       .catch(error => console.log(error))
   }

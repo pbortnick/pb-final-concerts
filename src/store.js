@@ -16,7 +16,7 @@ const reducers = combineReducers({
   concertFormData,
   venues,
   venue,
-  venueFormData
+  venueFormData,
 });
 
 const middleware = [thunk];
