@@ -9,6 +9,15 @@ class Api::VenuesController < ApplicationController
     render json: @venue
   end
 
+  def create
+    venue = Venue.new(venue_params)
+    if venue.save
+      render json: venue
+    else
+      render json: { message: venue.errors }, status: 400
+    end
+  end
+
   private
 
   def set_venue

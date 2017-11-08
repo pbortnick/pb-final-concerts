@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   namespace :api do
-    resources :concerts, except: [:new, :edit]
+    resources :concerts
   end
 
   namespace :api do

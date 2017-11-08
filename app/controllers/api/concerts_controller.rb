@@ -1,5 +1,5 @@
 class Api::ConcertsController < ApplicationController
-  before_action :set_concert, only: [:show, :edit, :destroy, :update]
+  before_action :set_concert, only: [:show, :destroy, :update]
 
   def index
     render json: Concert.all
@@ -21,6 +21,7 @@ class Api::ConcertsController < ApplicationController
 
   def update
     if @concert.update(concert_params)
+      @concert.save
       render json: @concert
     else
       render json: { message: @concert.errors }, status: 400
@@ -42,6 +43,6 @@ class Api::ConcertsController < ApplicationController
   end
 
   def concert_params
-    params.require(:concert).permit(:artist, :genre, :date, :venue_id)
+    params.require(:concert).permit(:artist, :genre, :date, :venue_id, :vote)
   end
 end
